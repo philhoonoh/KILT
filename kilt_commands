@@ -1,0 +1,10 @@
+/data/philhoon-relevance/FiD/open_domain_data/NQ_KILT_DPR
+
+CUDA_VISIBLE_DEVICES=0,1 python test_reader.py \
+--model_path /data/philhoon-relevance/FiD/pretrained_models/nq_reader_large \ fixed
+--eval_data /data/philhoon-relevance/FiD/open_domain_data/NQ/dev.json \ train/dev
+--write_results \ fixed
+--per_gpu_batch_size 1 \ 5,4,3,2,1
+--n_context 1 \ 1,2,3,4,5
+--name first_context \ 1_context, 2_context, 3_context, ...
+--checkpoint_dir /data/philhoon-relevance/FiD/results fixed
