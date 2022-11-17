@@ -86,6 +86,11 @@ class KnowledgeSource:
     def get_num_pages(self):
         return self.db.estimated_document_count()
 
+    # mongodb shell : db.knowledgesource.distinct("_id")
+    def get_distinct_ids(self):
+        return self.db.distnct("_id")
+
+    # mongodb shell : db.knowledgesource.findOne({"_id": '27097632'})
     def get_page_by_id(self, wikipedia_id):
         page = self.db.find_one({"_id": str(wikipedia_id)})
         return page

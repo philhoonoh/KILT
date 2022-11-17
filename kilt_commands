@@ -1,3 +1,38 @@
+CUDA_VISIBLE_DEVICES=1 python test_reader.py \
+        --model_path /data/philhoon-relevance/FiD/pretrained_models/nq_reader_large \
+        --eval_data /data/philhoon-relevance/FiD/open_domain_data/NQ/dev.json \
+        --write_results \
+        --per_gpu_batch_size 1 \
+        --n_context 1 \
+        --name first_context \
+        --checkpoint_dir /data/philhoon-relevance/FiD/results
+
+======================================================================
+======================================================================
+ps -o cmd fp <PID>
+
+--------------------
+
+db path : /data/philhoon-relevance/KILT/db
+------------------------------------------------------------
+cat /etc/os-release
+
+Install mongodb
+	conda install -c anaconda mongodb
+Install mongo-tools
+	conda install -c conda-forge mongo-tools
+checkout 
+	ls "$(which mongo | sed 's/mongo//')" | grep mongo
+
+Initialzing mongo db
+	mongod --dbpath /data/philhoon-relevance/KILT/db
+
+Import json file using mongoimport
+	mongoimport --db kilt --collection knowledgesource --file /data/philhoon-relevance/KILT/kilt_knowledgesource.json
+----------------------------------------------------------------
+
+
+
 /data/philhoon-relevance/FiD/open_domain_data/NQ_KILT_DPR
 
 CUDA_VISIBLE_DEVICES=0,1 python test_reader.py \
